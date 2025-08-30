@@ -96,12 +96,6 @@ export default function LandingPage() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </Link>
-
-            <Link href="/login">
-              <button className="px-8 py-4 border-2 border-gray-300 text-gray-300 rounded-full font-semibold text-lg hover:border-white hover:text-white transition-all duration-300 hover:shadow-lg">
-                Learn More
-              </button>
-            </Link>
           </div>
         </div>
 
