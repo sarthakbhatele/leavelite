@@ -1,25 +1,14 @@
-// import { v2 as cloudinary } from "cloudinary";
 
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET,
-// });
-
-// export const uploadDocument = async (file) => {
-//   const result = await cloudinary.uploader.upload(file, { resource_type: "auto" });
-//   return result.secure_url;
-// };
-
-import "dotenv/config"
 import { v2 as cloudinary } from "cloudinary";
 
+// Server-side configuration
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// For server-side uploads (admin operations)
 export const uploadDocument = async (file, options = {}) => {
   try {
     const result = await cloudinary.uploader.upload(file, {
@@ -42,6 +31,15 @@ export const uploadDocument = async (file, options = {}) => {
   }
 };
 
+// For client-side unsigned uploads - returns configuration
+export const getUploadSignature = () => {
+  return {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    uploadPreset: "leavelite-pdf", // Your unsigned preset
+    folder: "leave-applications"
+  };
+};
+
 // Helper function to generate document URLs
 export const getDocumentUrl = (publicId) => {
   return cloudinary.url(publicId, {
@@ -61,4 +59,17 @@ export const deleteDocument = async (publicId) => {
     console.error("Cloudinary delete error:", error);
     throw new Error(`Failed to delete document: ${error.message}`);
   }
+};
+
+// Generate PDF thumbnail URL (for preview purposes)
+export const getPdfThumbnailUrl = (publicId) => {
+  return cloudinary.url(publicId, {
+    resource_type: "raw",
+    secure: true,
+    format: "jpg",
+    page: 1, // First page of PDF
+    width: 300,
+    height: 400,
+    crop: "fill"
+  });
 };

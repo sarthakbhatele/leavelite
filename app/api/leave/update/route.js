@@ -1,38 +1,3 @@
-// import { connectDB } from "@/utils/db";
-// import Leave from "@/models/Leave";
-// import User from "@/models/User";
-// import jwt from "jsonwebtoken";
-// import { NextResponse } from "next/server";
-
-// export async function PATCH(req) {
-//     await connectDB();
-//     const token = req.cookies.get("token")?.value;
-//     if (!token) return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
-
-//     const { role } = jwt.verify(token, process.env.JWT_SECRET);
-//     if (role !== "admin") return NextResponse.json({ msg: "Forbidden" }, { status: 403 });
-
-//     const { leaveId, action, comment } = await req.json();
-//     const leave = await Leave.findById(leaveId).populate("user");
-//     if (!leave) return NextResponse.json({ msg: "Leave not found" }, { status: 404 });
-//     if (leave.status !== "Pending") return NextResponse.json({ msg: "Already processed" }, { status: 400 });
-
-//     if (action === "approve") {
-//         const days = (new Date(leave.endDate) - new Date(leave.startDate)) / (1000 * 60 * 60 * 24) + 1;
-//         leave.user.availableLeave -= days;
-//         await leave.user.save();
-//         leave.status = "Approved";
-//     } else if (action === "reject") {
-//         leave.status = "Rejected";
-//     } else return NextResponse.json({ msg: "Invalid action" }, { status: 400 });
-
-//     leave.adminComment = comment;
-//     await leave.save();
-//     return NextResponse.json({ msg: `Leave ${leave.status}`, leave });
-// }
-
-
-// app/api/leave/update/route.js
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { connectDB } from "@/utils/db";
