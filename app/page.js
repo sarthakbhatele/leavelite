@@ -58,10 +58,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Navigation Bar */}
-      {/* <Navbar /> */}
-
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden p-10">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -94,12 +91,6 @@ export default function LandingPage() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-            </Link>
-
-            <Link href="/login">
-              <button className="px-8 py-4 border-2 border-gray-300 text-gray-300 rounded-full font-semibold text-lg hover:border-white hover:text-white transition-all duration-300 hover:shadow-lg">
-                Learn More
               </button>
             </Link>
           </div>
