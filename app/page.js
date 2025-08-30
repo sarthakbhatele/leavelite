@@ -8,7 +8,6 @@ import Link from 'next/link';
 export default function LandingPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
