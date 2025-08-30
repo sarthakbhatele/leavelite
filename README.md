@@ -1,6 +1,6 @@
 # Leave Lite - Enhanced Leave Management System
 
-A comprehensive leave management system built with Next.js, MongoDB, and Cloudinary, featuring PDF uploads, real-time status updates, and professional UI/UX.
+A comprehensive leave management system built with Next.js, MongoDB, and Cloudinary, featuring PDF uploads, real-time status updates and modular UI/UX.
 
 ## ✨ Features
 
@@ -181,35 +181,3 @@ Ensure all environment variables are set in your production environment:
 - `CLOUDINARY_API_KEY`
 - `CLOUDINARY_API_SECRET`
 
-### Cloudinary Production Setup
-1. Configure CORS settings for your domain
-2. Set up proper folder permissions
-3. Monitor upload usage and limits
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For support and questions:
-- Check the documentation
-- Review existing issues
-- Create a new issue with detailed information
-
-## 🔮 Future Enhancements
-
-- **WebSocket Integration**: Real-time updates without polling
-- **Email Notifications**: Automated status change notifications
-- **Calendar Integration**: Sync with external calendar systems
-- **Advanced Analytics**: Leave pattern analysis and reporting
-- **Mobile App**: Native mobile application
-- **Multi-language Support**: Internationalization features

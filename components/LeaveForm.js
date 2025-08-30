@@ -1,5 +1,3 @@
-
-
 "use client";
 import { useState, useCallback, useRef, useEffect } from "react";
 import { uploadToCloudinary, validateFile } from "@/utils/clientUpload";
@@ -192,30 +190,27 @@ export default function LeaveForm({ refreshLeaves }) {
   return (
     <div className="space-y-6">
       {/* Leave Balance Display */}
-      <div className={`p-4 rounded-lg border ${
-        availableLeaves <= 0 
-          ? 'bg-red-50 border-red-200' 
-          : availableLeaves <= 5 
-            ? 'bg-yellow-50 border-yellow-200' 
-            : 'bg-green-50 border-green-200'
-      }`}>
+      <div className={`p-4 rounded-lg border ${availableLeaves <= 0
+        ? 'bg-red-50 border-red-200'
+        : availableLeaves <= 5
+          ? 'bg-yellow-50 border-yellow-200'
+          : 'bg-green-50 border-green-200'
+        }`}>
         <div className="flex items-center space-x-2">
-          <svg className={`h-5 w-5 ${
-            availableLeaves <= 0 
-              ? 'text-red-500' 
-              : availableLeaves <= 5 
-                ? 'text-yellow-500' 
-                : 'text-green-500'
-          }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={`h-5 w-5 ${availableLeaves <= 0
+            ? 'text-red-500'
+            : availableLeaves <= 5
+              ? 'text-yellow-500'
+              : 'text-green-500'
+            }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <span className={`text-sm font-medium ${
-            availableLeaves <= 0 
-              ? 'text-red-800' 
-              : availableLeaves <= 5 
-                ? 'text-yellow-800' 
-                : 'text-green-800'
-          }`}>
+          <span className={`text-sm font-medium ${availableLeaves <= 0
+            ? 'text-red-800'
+            : availableLeaves <= 5
+              ? 'text-yellow-800'
+              : 'text-green-800'
+            }`}>
             Available Leave Balance: {availableLeaves} day{availableLeaves !== 1 ? 's' : ''}
           </span>
         </div>
@@ -264,14 +259,12 @@ export default function LeaveForm({ refreshLeaves }) {
 
           {/* Days Calculation Display */}
           {startDate && endDate && (
-            <div className={`border rounded-lg p-3 ${
-              exceedsBalance 
-                ? 'bg-red-50 border-red-200' 
-                : 'bg-blue-50 border-blue-200'
-            }`}>
-              <p className={`text-sm ${
-                exceedsBalance ? 'text-red-800' : 'text-blue-800'
+            <div className={`border rounded-lg p-3 ${exceedsBalance
+              ? 'bg-red-50 border-red-200'
+              : 'bg-blue-50 border-blue-200'
               }`}>
+              <p className={`text-sm ${exceedsBalance ? 'text-red-800' : 'text-blue-800'
+                }`}>
                 <span className="font-medium">Duration:</span> {requestedDays} day{requestedDays !== 1 ? 's' : ''}
                 {exceedsBalance && (
                   <span className="block text-red-600 text-xs mt-1">
@@ -306,13 +299,12 @@ export default function LeaveForm({ refreshLeaves }) {
 
             {/* Drag & Drop Area */}
             <div
-              className={`relative border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
-                isFormDisabled 
-                  ? 'border-gray-200 bg-gray-50' 
-                  : dragActive
-                    ? 'border-blue-400 bg-blue-50'
-                    : 'border-gray-300 hover:border-gray-400'
-              }`}
+              className={`relative border-2 border-dashed rounded-lg p-6 text-center transition-colors ${isFormDisabled
+                ? 'border-gray-200 bg-gray-50'
+                : dragActive
+                  ? 'border-blue-400 bg-blue-50'
+                  : 'border-gray-300 hover:border-gray-400'
+                }`}
               onDragEnter={!isFormDisabled ? handleDrag : undefined}
               onDragLeave={!isFormDisabled ? handleDrag : undefined}
               onDragOver={!isFormDisabled ? handleDrag : undefined}
@@ -325,8 +317,8 @@ export default function LeaveForm({ refreshLeaves }) {
                   </svg>
                   <div className="mt-4">
                     <p className="text-sm text-gray-600">
-                      <span 
-                        className={`font-medium ${isFormDisabled ? 'text-gray-400' : 'text-blue-600 hover:text-blue-500 cursor-pointer'}`} 
+                      <span
+                        className={`font-medium ${isFormDisabled ? 'text-gray-400' : 'text-blue-600 hover:text-blue-500 cursor-pointer'}`}
                         onClick={!isFormDisabled ? () => fileInputRef.current?.click() : undefined}
                       >
                         Click to upload
@@ -399,11 +391,11 @@ export default function LeaveForm({ refreshLeaves }) {
             disabled={isUploading || isFormDisabled || exceedsBalance}
             className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {isUploading 
-              ? "Submitting..." 
-              : isFormDisabled 
-                ? "No Leaves Available" 
-                : exceedsBalance 
+            {isUploading
+              ? "Submitting..."
+              : isFormDisabled
+                ? "No Leaves Available"
+                : exceedsBalance
                   ? "Exceeds Available Balance"
                   : "Submit Leave Request"
             }
