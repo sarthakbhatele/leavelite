@@ -16,7 +16,26 @@ export async function POST(req) {
 
   const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
-  const response = NextResponse.json({ msg: "Logged in", role: user.role });
-  response.cookies.set("token", token, { httpOnly: true, maxAge: 7*24*60*60 });
+  // Return JSON response with user data
+  const response = NextResponse.json({ 
+    msg: "Logged in successfully", 
+    role: user.role,
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role
+    }
+  });
+
+  // Set the JWT token cookie - accessible to client for authentication
+  response.cookies.set("token", token, { 
+    httpOnly: false, // Allow client-side access for easier auth management
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 7 * 24 * 60 * 60, // 7 days
+    path: "/"
+  });
+
   return response;
 }
