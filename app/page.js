@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { FileText, Upload, CheckCircle, Shield, Clock, Users, ArrowRight, Sparkles, Menu, X } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 
 export default function LandingPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,7 +58,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden p-10">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Navigation Bar */}
       {/* <Navbar /> */}
 
@@ -86,17 +87,21 @@ export default function LandingPage() {
 
           {/* CTA Buttons */}
           <div className="flex gap-6 justify-center mb-16">
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
-              <span className="relative z-10 flex items-center">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            <Link href="/register">
+              <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
+                <span className="relative z-10 flex items-center">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </Link>
 
-            <button className="px-8 py-4 border-2 border-gray-300 text-gray-300 rounded-full font-semibold text-lg hover:border-white hover:text-white transition-all duration-300 hover:shadow-lg">
-              Learn More
-            </button>
+            <Link href="/login">
+              <button className="px-8 py-4 border-2 border-gray-300 text-gray-300 rounded-full font-semibold text-lg hover:border-white hover:text-white transition-all duration-300 hover:shadow-lg">
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -196,21 +201,25 @@ export default function LandingPage() {
         {/* Navigation Buttons */}
         <div className={`flex gap-6 transform transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 overflow-hidden">
-            <span className="relative z-10 flex items-center">
-              Login
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-          </button>
+          <Link href="/login">
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Login
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+            </button>
+          </Link>
 
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25 overflow-hidden">
-            <span className="relative z-10 flex items-center">
-              Register
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-green-800 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-          </button>
+          <Link href="/register">
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/25 overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Register
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-green-800 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+            </button>
+          </Link>
         </div>
 
         {/* Floating elements for visual interest */}
