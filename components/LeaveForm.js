@@ -245,13 +245,7 @@ export default function LeaveForm({ refreshLeaves }) {
 
   return (
     <div className="space-y-6">
-      {/* Debug Information - Remove this in production */}
-      {/* <div className="bg-gray-100 border border-gray-300 rounded-lg p-3 text-xs text-gray-600">
-        <p><strong>Debug Info:</strong> {debugInfo}</p>
-        <p><strong>Available Leaves:</strong> {availableLeaves}</p>
-        <p><strong>Form Disabled:</strong> {isFormDisabled ? "Yes" : "No"}</p>
-      </div> */}
-
+      
       {/* Leave Balance Display */}
       <div className={`p-4 rounded-lg border ${availableLeaves <= 0
           ? 'bg-red-50 border-red-200'
